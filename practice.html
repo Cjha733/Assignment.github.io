@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Lobster&family=Roboto+Slab:wght@500&700;&display=swap" rel="stylesheet">
+    <title>Hello Chandni </title><style>
+        input{
+            border-radius: 10px;
+            height:22px;
+            width: 252px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+        }
+    #forms{
+      width:300px;
+      border:1px solid Violet;
+      border-radius: 25px;
+      margin-top: 40px;
+      background-color: #8f8d8d;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.1s cubic-bezier(.25, .8, .25, 1);}
+      @media screen and (max-width: 800px) {
+    #forms {
+      background-color: olive;
+      width: auto;
+    }
+  }
+  @media screen and (max-width: 900px) {
+input {
+  background-color:white;
+  width: 75%;
+}
+}
+    body{
+    }
+    </style>
+  </head>
+  <body> <Center>
+        <div id="forms">
+            <form class="form" style="border-radius: 25px;">
+                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center;font-family: 'Lobster', cursive;"> Loan Page</h1>
+                <hr>
+                  <input type="text" name="" pattern="[a-zA-Z\s]" maxlength="10" placeholder="Full Name" ><br><br>
+                  <input type="Email" name="" placeholder="Email ID"><br><br>
+                <input type="PAN" name="" pattern="[A-Z0-9]" maxlength="10" placeholder="PAN Number" ><br>
+                <div class="calculator">
+            <br><input id="amount" type="number"
+            onchange="Calculate()"min="1" max="999999999" placeholder="Amount">
+      <br><br>
+      <input id="months" type="number"
+      onchange="Calculate()"min="1" max="300" value="" step="1" placeholder="Months to Pay:">
+      <br><br><input id="rate" type="number"
+              onchange="Calculate()" min="0" max="100" value="" step=".1" placeholder="Interest Rate: %">
+    <br> <br> <button id="total" type="button" name="button"
+      style="border-radius: 10px;
+      width: 259px;height: 27px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">Estimated EMI</button>
+</div>
+    <hr>
+     <input type="Submit" name="" placeholder="SUBMITS" style="width: 259px;height: 27px;"><br><br>
+      </form>
+  </div> </Center>
+<script>function Calculate() {
+    const amount = document.querySelector("#amount").value;
+    const rate = document.querySelector("#rate").value;
+    const months = document.querySelector("#months").value;
+    const interest = (amount * (rate * 0.01)) / months;
+    const total = ((amount / months) + interest).toFixed(2);
+    document.querySelector("#total")
+        .innerHTML = "EMI : (₹)" + total;
+}
+</script>
+  </body>
+</html>
